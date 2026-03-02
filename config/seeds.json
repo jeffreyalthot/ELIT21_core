@@ -1,0 +1,7 @@
+{
+  "network": "mainnet",
+  "dns_seeds": [
+    "elit21.com"
+  ],
+  "notes": "Point de départ du réseau ELIT21 Core."
+}
