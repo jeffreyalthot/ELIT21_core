@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_library(elit21_core
+    src/chain.cpp
     src/chainparams.cpp
     src/common/args.cpp
     src/chainparamsbase.cpp
@@ -56,6 +57,11 @@ add_test(NAME merkle_pow_tests COMMAND merkle_pow_tests)
 add_executable(chainman_tests test/unit/chainman_tests.cpp)
 target_link_libraries(chainman_tests PRIVATE elit21_core)
 add_test(NAME chainman_tests COMMAND chainman_tests)
+
+
+add_executable(chain_tests test/unit/chain_tests.cpp)
+target_link_libraries(chain_tests PRIVATE elit21_core)
+add_test(NAME chain_tests COMMAND chain_tests)
 
 add_executable(validationinterface_tests test/unit/validationinterface_tests.cpp)
 target_link_libraries(validationinterface_tests PRIVATE elit21_core)

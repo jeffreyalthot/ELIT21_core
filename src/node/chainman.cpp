@@ -11,7 +11,10 @@ bool Chainman::AcceptBlock(const Block& block, std::string& error)
             return false;
         }
 
-        m_active_chainstate.AddBlock(block);
+        if (!m_active_chainstate.AddBlock(block)) {
+            error = "chainstate.add_block_failed";
+            return false;
+        }
         error.clear();
         return true;
     }
@@ -24,7 +27,11 @@ bool Chainman::AcceptBlock(const Block& block, std::string& error)
         return false;
     }
 
-    m_active_chainstate.AddBlock(block);
+    if (!m_active_chainstate.AddBlock(block)) {
+        error = "chainstate.add_block_failed";
+        return false;
+    }
+
     error.clear();
     return true;
 }

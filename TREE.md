@@ -38,6 +38,7 @@ Voir `config/seeds.json`.
 
 ## Fichiers de structure supplémentaires (inspiration Bitcoin Core)
 
+- `src/chain.{h,cpp}` : primitives de chaîne actives (`BlockIndex`, `Chain`) pour préparer une structure proche de Bitcoin Core.
 - `src/chainparams.{h,cpp}` et `src/chainparamsbase.{h,cpp}` : sélection/configuration réseau.
 - `src/consensus/merkle.{h,cpp}` : calcul de racine Merkle.
 - `src/pow.{h,cpp}` : vérification PoW simplifiée.
@@ -52,5 +53,6 @@ Voir `config/seeds.json`.
 - `test/unit/chainparams_tests.cpp`
 - `test/unit/merkle_pow_tests.cpp`
 - `test/unit/chainman_tests.cpp`
+- `test/unit/chain_tests.cpp`
 
 - `test/unit/args_tests.cpp`
