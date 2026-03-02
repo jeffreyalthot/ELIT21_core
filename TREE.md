@@ -42,10 +42,12 @@ Voir `config/seeds.json`.
 - `src/chainparams.{h,cpp}` et `src/chainparamsbase.{h,cpp}` : sélection/configuration réseau.
 - `src/consensus/merkle.{h,cpp}` : calcul de racine Merkle.
 - `src/pow.{h,cpp}` : vérification PoW simplifiée.
+- `src/net.{h,cpp}` : registre des commandes P2P (version, ping, inv, block, tx...).
 - `src/net_processing.{h,cpp}` : traitement réseau d’un nouveau bloc.
 - `src/rpc/mining.{h,cpp}` : endpoint RPC mining.
 - `src/validation/validation.{h,cpp}` : validation contextuelle de bloc.
 - `src/init.{h,cpp}`, `src/validationinterface.{h,cpp}` et `src/node/context.{h,cpp}` : base d'initialisation et de signaux validation inspirée Bitcoin Core.
+- `src/node/blockmanager.{h,cpp}` et `src/node/peerman.{h,cpp}` : gestionnaires réseau/blocs inspirés des rôles `BlockManager` et `PeerManager` de Bitcoin Core.
 - `src/common/args.{h,cpp}` + `config/ELIT21.conf` : parsing CLI/config (`bitcoin.conf`-like) pour préparer le runtime ELIT21.
 
 ## Tests supplémentaires
@@ -56,3 +58,4 @@ Voir `config/seeds.json`.
 - `test/unit/chain_tests.cpp`
 
 - `test/unit/args_tests.cpp`
+- `test/unit/network_stack_tests.cpp`

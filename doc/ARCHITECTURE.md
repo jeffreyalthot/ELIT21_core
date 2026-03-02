@@ -17,16 +17,18 @@ Cette première base relie les principaux sous-systèmes afin de démarrer le d�
 - `src/policy/`: règles de policy standard pour l'admission mempool.
 - `src/chainparams*`: agrégation des paramètres réseau (consensus + base).
 - `src/pow*`: vérification PoW simplifiée.
+- `src/net*`: commandes P2P de base et message model inspiré du wire protocol Bitcoin.
 - `src/net_processing*`: couche de traitement bloc côté réseau.
 - `src/ELIT21d.cpp`: exécutable de démarrage local.
 - `src/init*`, `src/node/context*` et `src/validationinterface*`: initialisation applicative et notifications événements chaîne/mempool.
+- `src/node/blockmanager*` et `src/node/peerman*`: stockage des blocs connus + suivi des pairs connectés.
 
 ## Flux de validation actuel
 
 1. `Node::Start()` active le nœud.
 2. `Node::SubmitBlock()` refuse toute soumission si le nœud n'est pas démarré.
 3. `Node` délègue ensuite l'acceptation de bloc à `Chainman::AcceptBlock()`.
-4. `AppInitMain()` vérifie que le contexte nœud (chainstate, mempool, signaux) est prêt.
+4. `AppInitMain()` vérifie que le contexte nœud (chainstate, mempool, block manager, peer manager, signaux) est prêt.
 5. Premier bloc: validation genesis (`previous_block_hash == "0"`, merkle root présent, transactions non vides).
 6. Blocs suivants: validation de lien avec le bloc précédent (hash attendu, timestamp monotone, transactions non vides).
 7. Validation contextuelle additionnelle disponible via `ContextualCheckBlock()`:
@@ -40,7 +42,7 @@ Cette première base relie les principaux sous-systèmes afin de démarrer le d�
 - `CMakeLists.txt` définit:
   - la librairie `elit21_core`.
   - l'exécutable `ELIT21d`.
-  - les tests `node_validation_tests`, `mempool_policy_tests`, `chainparams_tests`, `merkle_pow_tests`, `chainman_tests`, `chain_tests`, `validationinterface_tests`.
+  - les tests `node_validation_tests`, `mempool_policy_tests`, `chainparams_tests`, `merkle_pow_tests`, `chainman_tests`, `chain_tests`, `validationinterface_tests`, `args_tests`, `network_stack_tests`.
 
 ## Étapes suivantes recommandées
 

@@ -20,6 +20,12 @@ bool Node::SubmitBlock(const Block& block)
         return false;
     }
 
+    std::string block_error;
+    if (!m_block_manager.AcceptBlock(block, block_error)) {
+        m_last_validation_error = block_error;
+        return false;
+    }
+
     if (!m_chainman.AcceptBlock(block, m_last_validation_error)) {
         return false;
     }
@@ -67,9 +73,14 @@ std::size_t Node::MempoolSize() const
     return m_mempool.Size();
 }
 
+std::size_t Node::KnownBlocks() const
+{
+    return m_block_manager.StoredBlockCount();
+}
+
 NodeContext Node::BuildContext()
 {
-    return NodeContext{&m_chainman.ActiveChain(), &m_mempool, &m_validation_signals};
+    return NodeContext{&m_chainman.ActiveChain(), &m_mempool, &m_block_manager, &m_peer_manager, &m_validation_signals};
 }
 
 } // namespace elit21::node
