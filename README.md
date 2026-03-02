@@ -13,6 +13,7 @@ ELIT21 Core est une base de travail pour construire une implémentation blockcha
 - Ajout de modules réseau inspirés de Bitcoin Core: `net.*`, `node/blockmanager.*` et `node/peerman.*` pour préparer la couche P2P/stockage des blocs.
 - Ajout d'une première couche de protocole wire `protocol.*` (header de message réseau, magic bytes, validation de commande) alignée avec la structure de `protocol.h` de Bitcoin Core.
 - Extension de la compatibilité d'arborescence Bitcoin Core avec `addrman*`, `banman*`, `txdb*` et `txmempool*` (adaptés à ELIT21).
+- Ajout d'une nouvelle vague de modules "bitcoin-like" pour poursuivre la parité de structure: `amount*`, `coins*`, `checkpoint*`, `versionbits*`, `deploymentstatus*`, `rpc/server*`, `rpc/register*` et `node/utxo_snapshot*`.
 
 ## Compilation rapide
 
@@ -33,7 +34,11 @@ ctest --test-dir build --output-on-failure
 - `src/node/blockmanager.{h,cpp}`: indexation minimale des blocs reçus (protection anti-doublon).
 - `src/node/peerman.{h,cpp}` + `src/net.{h,cpp}`: base du protocole P2P (peers connectés + commandes réseau de base).
 - `src/protocol.{h,cpp}`: modèle de header réseau et validation de structure de message pour le wire protocol ELIT21.
+- `src/amount.{h,cpp}`, `src/coins.{h,cpp}`, `src/checkpoint.{h,cpp}`: premières briques monnaie/UTXO/checkpoints dans le style Bitcoin Core.
+- `src/versionbits.{h,cpp}` et `src/deploymentstatus.{h,cpp}`: base d'activation de fonctionnalités de consensus.
+- `src/rpc/server.{h,cpp}` + `src/rpc/register.{h,cpp}`: registre RPC minimal proche de l'organisation Bitcoin Core.
+- `src/node/utxo_snapshot.{h,cpp}`: métadonnées de snapshot UTXO pour futurs bootstrap rapides.
 - `src/validation/block_validator.cpp`: règles de validation de base utilisées par `Chainman`.
 - `src/validation/validation.cpp`: validation contextuelle (merkle + PoW simplifié).
 - `src/chainparams.cpp`: paramètres réseau de plus haut niveau.
-- `test/unit/*.cpp`: tests bloc/mempool + nouveaux tests chainparams, merkle/pow, chain manager et compatibilité des nouveaux fichiers Bitcoin-like.
+- `test/unit/*.cpp`: tests bloc/mempool + nouveaux tests chainparams, merkle/pow, chain manager, compatibilité de layout et modules de parité Bitcoin-like.
