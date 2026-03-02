@@ -1,7 +1,5 @@
 #include "node/node.h"
 
-#include "validation/block_validator.h"
-
 #include <utility>
 
 namespace elit21::node {
@@ -22,27 +20,11 @@ bool Node::SubmitBlock(const Block& block)
         return false;
     }
 
-    if (m_chainstate.Tip() == nullptr) {
-        const validation::ValidationResult result = validation::ValidateGenesisBlock(block);
-        if (!result.valid) {
-            m_last_validation_error = result.reason;
-            return false;
-        }
-        m_chainstate.AddBlock(block);
-        m_validation_signals.NotifyBlockTip(block, m_chainstate.Height());
-        m_last_validation_error.clear();
-        return true;
-    }
-
-    const std::size_t next_height = m_chainstate.Height() + 1;
-    const validation::ValidationResult result = validation::ValidateBlockLink(*m_chainstate.Tip(), block, next_height);
-    if (!result.valid) {
-        m_last_validation_error = result.reason;
+    if (!m_chainman.AcceptBlock(block, m_last_validation_error)) {
         return false;
     }
 
-    m_chainstate.AddBlock(block);
-    m_validation_signals.NotifyBlockTip(block, m_chainstate.Height());
+    m_validation_signals.NotifyBlockTip(block, m_chainman.ActiveChain().Height());
     m_last_validation_error.clear();
     return true;
 }
@@ -67,7 +49,7 @@ bool Node::SubmitTransaction(const Transaction& tx)
 
 const kernel::ChainState& Node::Chain() const
 {
-    return m_chainstate;
+    return m_chainman.ActiveChain();
 }
 
 const consensus::Params& Node::Params() const
@@ -87,7 +69,7 @@ std::size_t Node::MempoolSize() const
 
 NodeContext Node::BuildContext()
 {
-    return NodeContext{&m_chainstate, &m_mempool, &m_validation_signals};
+    return NodeContext{&m_chainman.ActiveChain(), &m_mempool, &m_validation_signals};
 }
 
 } // namespace elit21::node

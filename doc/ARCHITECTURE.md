@@ -9,6 +9,7 @@ Cette première base relie les principaux sous-systèmes afin de démarrer le d�
 - `src/consensus/`: paramètres réseau (`main`, `test`) + calcul de merkle root.
 - `src/kernel/`: `ChainState` en mémoire.
 - `src/node/`: orchestration du cycle de vie d'un nœud + soumission de blocs.
+- `src/node/chainman*`: gestion de la chaîne active et point central d'acceptation des blocs.
 - `src/validation/`: règles de validation minimales + validation contextuelle.
 - `src/interfaces/`: contrat minimal d'accès à la chaîne.
 - `src/rpc/`: points d'entrée `GetBlockchainInfo`, `GetMempoolInfo` et `GetMiningInfo`.
@@ -23,10 +24,11 @@ Cette première base relie les principaux sous-systèmes afin de démarrer le d�
 
 1. `Node::Start()` active le nœud.
 2. `Node::SubmitBlock()` refuse toute soumission si le nœud n'est pas démarré.
-3. `AppInitMain()` vérifie que le contexte nœud (chainstate, mempool, signaux) est prêt.
-4. Premier bloc: validation genesis (`previous_block_hash == "0"`, merkle root présent, transactions non vides).
-5. Blocs suivants: validation de lien avec le bloc précédent (hash attendu, timestamp monotone, transactions non vides).
-6. Validation contextuelle additionnelle disponible via `ContextualCheckBlock()`:
+3. `Node` délègue ensuite l'acceptation de bloc à `Chainman::AcceptBlock()`.
+4. `AppInitMain()` vérifie que le contexte nœud (chainstate, mempool, signaux) est prêt.
+5. Premier bloc: validation genesis (`previous_block_hash == "0"`, merkle root présent, transactions non vides).
+6. Blocs suivants: validation de lien avec le bloc précédent (hash attendu, timestamp monotone, transactions non vides).
+7. Validation contextuelle additionnelle disponible via `ContextualCheckBlock()`:
    - transactions présentes,
    - merkle root cohérente,
    - PoW simplifiée conforme.
@@ -37,7 +39,7 @@ Cette première base relie les principaux sous-systèmes afin de démarrer le d�
 - `CMakeLists.txt` définit:
   - la librairie `elit21_core`.
   - l'exécutable `ELIT21d`.
-  - les tests `node_validation_tests`, `mempool_policy_tests`, `chainparams_tests`, `merkle_pow_tests`.
+  - les tests `node_validation_tests`, `mempool_policy_tests`, `chainparams_tests`, `merkle_pow_tests`, `chainman_tests`, `validationinterface_tests`.
 
 ## Étapes suivantes recommandées
 

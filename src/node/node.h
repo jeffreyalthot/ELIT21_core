@@ -2,7 +2,7 @@
 #define ELIT21_NODE_NODE_H
 
 #include "consensus/params.h"
-#include "kernel/chainstate.h"
+#include "node/chainman.h"
 #include "node/context.h"
 #include "node/mempool.h"
 
@@ -27,7 +27,7 @@ public:
 
 private:
     consensus::Params m_params;
-    kernel::ChainState m_chainstate;
+    Chainman m_chainman;
     Mempool m_mempool;
     ValidationSignals m_validation_signals;
     bool m_started{false};

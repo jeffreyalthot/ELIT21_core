@@ -32,6 +32,7 @@ Voir `config/seeds.json`.
 - `src/consensus/params.{h,cpp}` : paramètres réseau initiaux.
 - `src/kernel/chainstate.{h,cpp}` : état de chaîne en mémoire.
 - `src/node/node.{h,cpp}` : cycle de vie du nœud.
+- `src/node/chainman.{h,cpp}` : gestionnaire de chaîne active (inspiration `ChainstateManager`).
 - `src/rpc/blockchain.{h,cpp}` : endpoint d'information blockchain.
 - `doc/ARCHITECTURE.md` : documentation de l'architecture bootstrap.
 
@@ -49,3 +50,4 @@ Voir `config/seeds.json`.
 
 - `test/unit/chainparams_tests.cpp`
 - `test/unit/merkle_pow_tests.cpp`
+- `test/unit/chainman_tests.cpp`
