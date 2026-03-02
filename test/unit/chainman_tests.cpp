@@ -1,20 +1,12 @@
 #include "node/chainman.h"
 
-#include "crypto/hash.h"
+#include "chain.h"
 
 #include <cstdlib>
 #include <iostream>
 #include <string>
 
 namespace {
-
-std::string ComputeBlockId(const elit21::BlockHeader& header, const std::size_t height)
-{
-    return elit21::crypto::Hash256(
-        std::to_string(header.version) + "|" + header.previous_block_hash + "|" + header.merkle_root + "|" +
-        std::to_string(header.timestamp) + "|" + std::to_string(header.bits) + "|" + std::to_string(header.nonce) +
-        "|" + std::to_string(height));
-}
 
 elit21::Transaction CoinbaseTx(const std::string& txid)
 {
@@ -37,7 +29,7 @@ elit21::Block BuildGenesis()
 elit21::Block BuildNextBlock(const elit21::Block& previous, const std::size_t next_height)
 {
     elit21::Block block;
-    block.header.previous_block_hash = ComputeBlockId(previous.header, next_height - 1);
+    block.header.previous_block_hash = elit21::ComputeBlockHash(previous.header, next_height - 1);
     block.header.merkle_root = "root" + std::to_string(next_height);
     block.header.timestamp = previous.header.timestamp + 1;
     block.header.nonce = static_cast<std::uint32_t>(next_height);
@@ -75,6 +67,9 @@ int main()
     const elit21::Block block1 = BuildNextBlock(genesis, 1);
     ok &= Expect(chainman.AcceptBlock(block1, error), "accepts valid next block");
     ok &= Expect(chainman.ActiveChain().Height() == 1, "height is 1 after second block");
+    ok &= Expect(
+        chainman.ActiveChain().HasBlock(elit21::ComputeBlockHash(block1.header, 1)),
+        "chainstate contains second block hash");
 
     return ok ? EXIT_SUCCESS : EXIT_FAILURE;
 }
