@@ -34,3 +34,11 @@ Voir `config/seeds.json`.
 - `src/node/node.{h,cpp}` : cycle de vie du nœud.
 - `src/rpc/blockchain.{h,cpp}` : endpoint d'information blockchain.
 - `doc/ARCHITECTURE.md` : documentation de l'architecture bootstrap.
+
+## Fichiers de bootstrap ajoutés (phase 2)
+
+- `src/node/mempool.{h,cpp}` : mempool en mémoire (anti-doublon txid).
+- `src/validation/tx_validator.{h,cpp}` : validation transaction minimale.
+- `src/policy/policy.{h,cpp}` : policy de transaction standard.
+- `src/rpc/mempool.{h,cpp}` : endpoint d'information mempool.
+- `test/unit/mempool_policy_tests.cpp` : tests d'acceptation transaction.

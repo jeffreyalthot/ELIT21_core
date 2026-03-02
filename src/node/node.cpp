@@ -45,6 +45,24 @@ bool Node::SubmitBlock(const Block& block)
     return true;
 }
 
+
+bool Node::SubmitTransaction(const Transaction& tx)
+{
+    if (!m_started) {
+        m_last_validation_error = "node.not_started";
+        return false;
+    }
+
+    std::string error;
+    if (!m_mempool.Add(tx, error)) {
+        m_last_validation_error = error;
+        return false;
+    }
+
+    m_last_validation_error.clear();
+    return true;
+}
+
 const kernel::ChainState& Node::Chain() const
 {
     return m_chainstate;
@@ -58,6 +76,11 @@ const consensus::Params& Node::Params() const
 const std::string& Node::LastValidationError() const
 {
     return m_last_validation_error;
+}
+
+std::size_t Node::MempoolSize() const
+{
+    return m_mempool.Size();
 }
 
 } // namespace elit21::node
