@@ -6,6 +6,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_library(elit21_core
+    src/addrman.cpp
+    src/banman.cpp
     src/chain.cpp
     src/chainparams.cpp
     src/common/args.cpp
@@ -26,6 +28,8 @@ add_library(elit21_core
     src/policy/policy.cpp
     src/pow.cpp
     src/protocol.cpp
+    src/txdb.cpp
+    src/txmempool.cpp
     src/rpc/blockchain.cpp
     src/rpc/mining.cpp
     src/rpc/mempool.cpp
@@ -82,3 +86,7 @@ add_test(NAME network_stack_tests COMMAND network_stack_tests)
 add_executable(protocol_tests test/unit/protocol_tests.cpp)
 target_link_libraries(protocol_tests PRIVATE elit21_core)
 add_test(NAME protocol_tests COMMAND protocol_tests)
+
+add_executable(bitcoin_layout_tests test/unit/bitcoin_layout_tests.cpp)
+target_link_libraries(bitcoin_layout_tests PRIVATE elit21_core)
+add_test(NAME bitcoin_layout_tests COMMAND bitcoin_layout_tests)

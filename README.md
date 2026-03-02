@@ -12,6 +12,7 @@ ELIT21 Core est une base de travail pour construire une implémentation blockcha
 - Ajout d'une base de fichiers `init*`, `validationinterface*` et `node/context*` pour structurer l'initialisation comme Bitcoin Core.
 - Ajout de modules réseau inspirés de Bitcoin Core: `net.*`, `node/blockmanager.*` et `node/peerman.*` pour préparer la couche P2P/stockage des blocs.
 - Ajout d'une première couche de protocole wire `protocol.*` (header de message réseau, magic bytes, validation de commande) alignée avec la structure de `protocol.h` de Bitcoin Core.
+- Extension de la compatibilité d'arborescence Bitcoin Core avec `addrman*`, `banman*`, `txdb*` et `txmempool*` (adaptés à ELIT21).
 
 ## Compilation rapide
 
@@ -35,4 +36,4 @@ ctest --test-dir build --output-on-failure
 - `src/validation/block_validator.cpp`: règles de validation de base utilisées par `Chainman`.
 - `src/validation/validation.cpp`: validation contextuelle (merkle + PoW simplifié).
 - `src/chainparams.cpp`: paramètres réseau de plus haut niveau.
-- `test/unit/*.cpp`: tests bloc/mempool + nouveaux tests chainparams, merkle/pow et chain manager.
+- `test/unit/*.cpp`: tests bloc/mempool + nouveaux tests chainparams, merkle/pow, chain manager et compatibilité des nouveaux fichiers Bitcoin-like.
