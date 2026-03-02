@@ -6,15 +6,22 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_library(elit21_core
+    src/chainparams.cpp
+    src/chainparamsbase.cpp
     src/consensus/params.cpp
+    src/consensus/merkle.cpp
     src/crypto/hash.cpp
     src/kernel/chainstate.cpp
+    src/net_processing.cpp
     src/node/mempool.cpp
     src/node/node.cpp
     src/policy/policy.cpp
+    src/pow.cpp
     src/rpc/blockchain.cpp
+    src/rpc/mining.cpp
     src/rpc/mempool.cpp
     src/validation/block_validator.cpp
+    src/validation/validation.cpp
     src/validation/tx_validator.cpp
 )
 
@@ -32,3 +39,11 @@ add_test(NAME node_validation_tests COMMAND node_validation_tests)
 add_executable(mempool_policy_tests test/unit/mempool_policy_tests.cpp)
 target_link_libraries(mempool_policy_tests PRIVATE elit21_core)
 add_test(NAME mempool_policy_tests COMMAND mempool_policy_tests)
+
+add_executable(chainparams_tests test/unit/chainparams_tests.cpp)
+target_link_libraries(chainparams_tests PRIVATE elit21_core)
+add_test(NAME chainparams_tests COMMAND chainparams_tests)
+
+add_executable(merkle_pow_tests test/unit/merkle_pow_tests.cpp)
+target_link_libraries(merkle_pow_tests PRIVATE elit21_core)
+add_test(NAME merkle_pow_tests COMMAND merkle_pow_tests)

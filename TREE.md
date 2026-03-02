@@ -1,6 +1,6 @@
 # Arborescence ELIT21 Core (inspirée de Bitcoin Core)
 
-Cette première étape recrée une arborescence de base similaire à Bitcoin Core pour poser les fondations du projet.
+Cette étape recrée et étend une arborescence de base similaire à Bitcoin Core pour poser les fondations du projet.
 
 ## Dossiers racine
 
@@ -35,10 +35,16 @@ Voir `config/seeds.json`.
 - `src/rpc/blockchain.{h,cpp}` : endpoint d'information blockchain.
 - `doc/ARCHITECTURE.md` : documentation de l'architecture bootstrap.
 
-## Fichiers de bootstrap ajoutés (phase 2)
+## Fichiers de structure supplémentaires (inspiration Bitcoin Core)
 
-- `src/node/mempool.{h,cpp}` : mempool en mémoire (anti-doublon txid).
-- `src/validation/tx_validator.{h,cpp}` : validation transaction minimale.
-- `src/policy/policy.{h,cpp}` : policy de transaction standard.
-- `src/rpc/mempool.{h,cpp}` : endpoint d'information mempool.
-- `test/unit/mempool_policy_tests.cpp` : tests d'acceptation transaction.
+- `src/chainparams.{h,cpp}` et `src/chainparamsbase.{h,cpp}` : sélection/configuration réseau.
+- `src/consensus/merkle.{h,cpp}` : calcul de racine Merkle.
+- `src/pow.{h,cpp}` : vérification PoW simplifiée.
+- `src/net_processing.{h,cpp}` : traitement réseau d’un nouveau bloc.
+- `src/rpc/mining.{h,cpp}` : endpoint RPC mining.
+- `src/validation/validation.{h,cpp}` : validation contextuelle de bloc.
+
+## Tests supplémentaires
+
+- `test/unit/chainparams_tests.cpp`
+- `test/unit/merkle_pow_tests.cpp`
