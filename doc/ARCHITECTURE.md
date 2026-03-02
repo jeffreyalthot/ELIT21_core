@@ -9,9 +9,10 @@ Cette première base relie les principaux sous-systèmes afin de démarrer le d�
 - `src/consensus/`: paramètres réseau (`main`, `test`).
 - `src/kernel/`: `ChainState` en mémoire.
 - `src/node/`: orchestration du cycle de vie d'un nœud + soumission de blocs.
-- `src/validation/`: règles de validation minimales (bloc genesis et chaînage).
+- `src/validation/`: règles de validation minimales (bloc genesis, chaînage et transactions).
 - `src/interfaces/`: contrat minimal d'accès à la chaîne.
-- `src/rpc/`: point d'entrée `GetBlockchainInfo`.
+- `src/rpc/`: points d'entrée `GetBlockchainInfo` et `GetMempoolInfo`.
+- `src/policy/`: règles de policy standard pour l'admission mempool.
 - `src/ELIT21d.cpp`: exécutable de démarrage local.
 
 ## Flux de validation actuel
@@ -35,3 +36,10 @@ Cette première base relie les principaux sous-systèmes afin de démarrer le d�
 2. Implémenter une vraie racine de Merkle à partir des transactions.
 3. Ajouter la validation d'en-tête (bits/PoW) et la difficulté.
 4. Étendre les tests unitaires consensus/kernel/rpc.
+
+## Flux mempool actuel
+
+1. `Node::SubmitTransaction()` refuse si le nœud n'est pas démarré.
+2. `validation::ValidateTransaction()` vérifie txid + présence d'outputs.
+3. `policy::IsStandardTx()` borne le nombre d'outputs pour rester standard.
+4. `node::Mempool` rejette les doublons `txid` et stocke les transactions admises.

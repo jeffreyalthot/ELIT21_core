@@ -9,9 +9,13 @@ add_library(elit21_core
     src/consensus/params.cpp
     src/crypto/hash.cpp
     src/kernel/chainstate.cpp
+    src/node/mempool.cpp
     src/node/node.cpp
+    src/policy/policy.cpp
     src/rpc/blockchain.cpp
+    src/rpc/mempool.cpp
     src/validation/block_validator.cpp
+    src/validation/tx_validator.cpp
 )
 
 target_include_directories(elit21_core PUBLIC src)
@@ -24,3 +28,7 @@ enable_testing()
 add_executable(node_validation_tests test/unit/node_validation_tests.cpp)
 target_link_libraries(node_validation_tests PRIVATE elit21_core)
 add_test(NAME node_validation_tests COMMAND node_validation_tests)
+
+add_executable(mempool_policy_tests test/unit/mempool_policy_tests.cpp)
+target_link_libraries(mempool_policy_tests PRIVATE elit21_core)
+add_test(NAME mempool_policy_tests COMMAND mempool_policy_tests)

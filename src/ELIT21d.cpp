@@ -1,6 +1,7 @@
 #include "consensus/params.h"
 #include "node/node.h"
 #include "rpc/blockchain.h"
+#include "rpc/mempool.h"
 
 #include <iostream>
 
@@ -13,5 +14,6 @@ int main()
     }
 
     std::cout << "ELIT21 Core démarré: " << elit21::rpc::GetBlockchainInfo(node) << std::endl;
+    std::cout << "Mempool: " << elit21::rpc::GetMempoolInfo(node) << std::endl;
     return 0;
 }
