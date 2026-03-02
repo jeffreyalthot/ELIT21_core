@@ -19,6 +19,8 @@ Cette première base relie les principaux sous-systèmes afin de démarrer le d�
 - `src/pow*`: vérification PoW simplifiée.
 - `src/net*`: commandes P2P de base et message model inspiré du wire protocol Bitcoin.
 - `src/protocol*`: couche de framing wire (magic bytes, commande, taille payload, checksum) inspirée de `src/protocol.h` de Bitcoin Core.
+- `src/addrman*`/`src/banman*`: gestion des endpoints réseau connus et bannis, pour rapprocher la surface de code P2P de Bitcoin Core.
+- `src/txdb*`/`src/txmempool*`: base de stockage transactionnel et naming mempool compatible avec la structure Bitcoin Core.
 - `src/net_processing*`: couche de traitement bloc côté réseau.
 - `src/ELIT21d.cpp`: exécutable de démarrage local.
 - `src/init*`, `src/node/context*` et `src/validationinterface*`: initialisation applicative et notifications événements chaîne/mempool.
@@ -43,7 +45,7 @@ Cette première base relie les principaux sous-systèmes afin de démarrer le d�
 - `CMakeLists.txt` définit:
   - la librairie `elit21_core`.
   - l'exécutable `ELIT21d`.
-  - les tests `node_validation_tests`, `mempool_policy_tests`, `chainparams_tests`, `merkle_pow_tests`, `chainman_tests`, `chain_tests`, `validationinterface_tests`, `args_tests`, `network_stack_tests`, `protocol_tests`.
+  - les tests `node_validation_tests`, `mempool_policy_tests`, `chainparams_tests`, `merkle_pow_tests`, `chainman_tests`, `chain_tests`, `validationinterface_tests`, `args_tests`, `network_stack_tests`, `protocol_tests`, `bitcoin_layout_tests`.
 
 ## Étapes suivantes recommandées
 
