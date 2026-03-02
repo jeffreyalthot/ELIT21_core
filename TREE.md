@@ -23,3 +23,14 @@ Le seed serveur principal configuré pour démarrer le réseau est:
 - `elit21.com`
 
 Voir `config/seeds.json`.
+
+## Bootstrap code ajouté
+
+- `src/ELIT21d.cpp` : démarrage minimal d'un nœud.
+- `src/primitives/block.h` : structures bloc/transaction.
+- `src/crypto/hash.{h,cpp}` : interface hash + placeholder.
+- `src/consensus/params.{h,cpp}` : paramètres réseau initiaux.
+- `src/kernel/chainstate.{h,cpp}` : état de chaîne en mémoire.
+- `src/node/node.{h,cpp}` : cycle de vie du nœud.
+- `src/rpc/blockchain.{h,cpp}` : endpoint d'information blockchain.
+- `doc/ARCHITECTURE.md` : documentation de l'architecture bootstrap.
