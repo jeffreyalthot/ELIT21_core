@@ -7,6 +7,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_library(elit21_core
     src/chainparams.cpp
+    src/common/args.cpp
     src/chainparamsbase.cpp
     src/consensus/params.cpp
     src/consensus/merkle.cpp
@@ -59,3 +60,7 @@ add_test(NAME chainman_tests COMMAND chainman_tests)
 add_executable(validationinterface_tests test/unit/validationinterface_tests.cpp)
 target_link_libraries(validationinterface_tests PRIVATE elit21_core)
 add_test(NAME validationinterface_tests COMMAND validationinterface_tests)
+
+add_executable(args_tests test/unit/args_tests.cpp)
+target_link_libraries(args_tests PRIVATE elit21_core)
+add_test(NAME args_tests COMMAND args_tests)

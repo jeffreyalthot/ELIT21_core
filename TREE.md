@@ -45,9 +45,12 @@ Voir `config/seeds.json`.
 - `src/rpc/mining.{h,cpp}` : endpoint RPC mining.
 - `src/validation/validation.{h,cpp}` : validation contextuelle de bloc.
 - `src/init.{h,cpp}`, `src/validationinterface.{h,cpp}` et `src/node/context.{h,cpp}` : base d'initialisation et de signaux validation inspirée Bitcoin Core.
+- `src/common/args.{h,cpp}` + `config/ELIT21.conf` : parsing CLI/config (`bitcoin.conf`-like) pour préparer le runtime ELIT21.
 
 ## Tests supplémentaires
 
 - `test/unit/chainparams_tests.cpp`
 - `test/unit/merkle_pow_tests.cpp`
 - `test/unit/chainman_tests.cpp`
+
+- `test/unit/args_tests.cpp`

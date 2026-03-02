@@ -1,3 +1,4 @@
+#include "common/args.h"
 #include "consensus/params.h"
 #include "init.h"
 #include "node/node.h"
@@ -6,8 +7,14 @@
 
 #include <iostream>
 
-int main()
+int main(int argc, const char* argv[])
 {
+    elit21::common::ArgsManager args;
+    args.ParseParameters(argc, argv);
+
+    const std::string config_path = args.GetArg("conf", "config/ELIT21.conf");
+    args.ReadConfigFile(config_path);
+
     elit21::node::Node node(elit21::consensus::MainNetParams());
     elit21::node::NodeContext node_context = node.BuildContext();
     if (!elit21::AppInitMain(node_context)) {
@@ -22,5 +29,7 @@ int main()
 
     std::cout << "ELIT21 Core démarré: " << elit21::rpc::GetBlockchainInfo(node) << std::endl;
     std::cout << "Mempool: " << elit21::rpc::GetMempoolInfo(node) << std::endl;
+    std::cout << "datadir=" << args.GetArg("datadir", "./datadir") << std::endl;
+    std::cout << "config=" << config_path << std::endl;
     return 0;
 }
