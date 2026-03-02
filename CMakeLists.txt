@@ -11,8 +11,10 @@ add_library(elit21_core
     src/consensus/params.cpp
     src/consensus/merkle.cpp
     src/crypto/hash.cpp
+    src/init.cpp
     src/kernel/chainstate.cpp
     src/net_processing.cpp
+    src/node/context.cpp
     src/node/mempool.cpp
     src/node/node.cpp
     src/policy/policy.cpp
@@ -23,6 +25,7 @@ add_library(elit21_core
     src/validation/block_validator.cpp
     src/validation/validation.cpp
     src/validation/tx_validator.cpp
+    src/validationinterface.cpp
 )
 
 target_include_directories(elit21_core PUBLIC src)
@@ -47,3 +50,7 @@ add_test(NAME chainparams_tests COMMAND chainparams_tests)
 add_executable(merkle_pow_tests test/unit/merkle_pow_tests.cpp)
 target_link_libraries(merkle_pow_tests PRIVATE elit21_core)
 add_test(NAME merkle_pow_tests COMMAND merkle_pow_tests)
+
+add_executable(validationinterface_tests test/unit/validationinterface_tests.cpp)
+target_link_libraries(validationinterface_tests PRIVATE elit21_core)
+add_test(NAME validationinterface_tests COMMAND validationinterface_tests)

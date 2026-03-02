@@ -17,18 +17,20 @@ Cette première base relie les principaux sous-systèmes afin de démarrer le d�
 - `src/pow*`: vérification PoW simplifiée.
 - `src/net_processing*`: couche de traitement bloc côté réseau.
 - `src/ELIT21d.cpp`: exécutable de démarrage local.
+- `src/init*`, `src/node/context*` et `src/validationinterface*`: initialisation applicative et notifications événements chaîne/mempool.
 
 ## Flux de validation actuel
 
 1. `Node::Start()` active le nœud.
 2. `Node::SubmitBlock()` refuse toute soumission si le nœud n'est pas démarré.
-3. Premier bloc: validation genesis (`previous_block_hash == "0"`, merkle root présent, transactions non vides).
-4. Blocs suivants: validation de lien avec le bloc précédent (hash attendu, timestamp monotone, transactions non vides).
-5. Validation contextuelle additionnelle disponible via `ContextualCheckBlock()`:
+3. `AppInitMain()` vérifie que le contexte nœud (chainstate, mempool, signaux) est prêt.
+4. Premier bloc: validation genesis (`previous_block_hash == "0"`, merkle root présent, transactions non vides).
+5. Blocs suivants: validation de lien avec le bloc précédent (hash attendu, timestamp monotone, transactions non vides).
+6. Validation contextuelle additionnelle disponible via `ContextualCheckBlock()`:
    - transactions présentes,
    - merkle root cohérente,
    - PoW simplifiée conforme.
-6. Si la validation réussit, le bloc est ajouté à `ChainState`.
+7. Si la validation réussit, le bloc est ajouté à `ChainState` et notifié via `ValidationSignals`.
 
 ## Build et tests
 

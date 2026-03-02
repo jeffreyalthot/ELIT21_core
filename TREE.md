@@ -43,6 +43,7 @@ Voir `config/seeds.json`.
 - `src/net_processing.{h,cpp}` : traitement réseau d’un nouveau bloc.
 - `src/rpc/mining.{h,cpp}` : endpoint RPC mining.
 - `src/validation/validation.{h,cpp}` : validation contextuelle de bloc.
+- `src/init.{h,cpp}`, `src/validationinterface.{h,cpp}` et `src/node/context.{h,cpp}` : base d'initialisation et de signaux validation inspirée Bitcoin Core.
 
 ## Tests supplémentaires
 

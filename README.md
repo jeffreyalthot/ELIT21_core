@@ -8,6 +8,7 @@ ELIT21 Core est une base de travail pour construire une implémentation blockcha
 - Seed serveur initial configuré: `elit21.com`.
 - Bootstrap de développement C++ commencé dans `src/` avec des modules consensus, kernel, node, mempool, policy, rpc et validation de blocs/transactions.
 - Extension de l’architecture avec des fichiers analogues à Bitcoin Core: `chainparams*`, `pow*`, `net_processing*`, `validation*` global et RPC mining.
+- Ajout d'une base de fichiers `init*`, `validationinterface*` et `node/context*` pour structurer l'initialisation comme Bitcoin Core.
 
 ## Compilation rapide
 

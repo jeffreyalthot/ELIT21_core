@@ -29,6 +29,7 @@ bool Node::SubmitBlock(const Block& block)
             return false;
         }
         m_chainstate.AddBlock(block);
+        m_validation_signals.NotifyBlockTip(block, m_chainstate.Height());
         m_last_validation_error.clear();
         return true;
     }
@@ -41,10 +42,10 @@ bool Node::SubmitBlock(const Block& block)
     }
 
     m_chainstate.AddBlock(block);
+    m_validation_signals.NotifyBlockTip(block, m_chainstate.Height());
     m_last_validation_error.clear();
     return true;
 }
-
 
 bool Node::SubmitTransaction(const Transaction& tx)
 {
@@ -59,6 +60,7 @@ bool Node::SubmitTransaction(const Transaction& tx)
         return false;
     }
 
+    m_validation_signals.NotifyTransactionAdded(tx);
     m_last_validation_error.clear();
     return true;
 }
@@ -81,6 +83,11 @@ const std::string& Node::LastValidationError() const
 std::size_t Node::MempoolSize() const
 {
     return m_mempool.Size();
+}
+
+NodeContext Node::BuildContext()
+{
+    return NodeContext{&m_chainstate, &m_mempool, &m_validation_signals};
 }
 
 } // namespace elit21::node
