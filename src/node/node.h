@@ -3,6 +3,7 @@
 
 #include "consensus/params.h"
 #include "kernel/chainstate.h"
+#include "node/context.h"
 #include "node/mempool.h"
 
 #include <string>
@@ -22,10 +23,13 @@ public:
     const std::string& LastValidationError() const;
     std::size_t MempoolSize() const;
 
+    NodeContext BuildContext();
+
 private:
     consensus::Params m_params;
     kernel::ChainState m_chainstate;
     Mempool m_mempool;
+    ValidationSignals m_validation_signals;
     bool m_started{false};
     std::string m_last_validation_error;
 };
