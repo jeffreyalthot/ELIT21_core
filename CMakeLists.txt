@@ -25,6 +25,7 @@ add_library(elit21_core
     src/node/node.cpp
     src/policy/policy.cpp
     src/pow.cpp
+    src/protocol.cpp
     src/rpc/blockchain.cpp
     src/rpc/mining.cpp
     src/rpc/mempool.cpp
@@ -77,3 +78,7 @@ add_test(NAME args_tests COMMAND args_tests)
 add_executable(network_stack_tests test/unit/network_stack_tests.cpp)
 target_link_libraries(network_stack_tests PRIVATE elit21_core)
 add_test(NAME network_stack_tests COMMAND network_stack_tests)
+
+add_executable(protocol_tests test/unit/protocol_tests.cpp)
+target_link_libraries(protocol_tests PRIVATE elit21_core)
+add_test(NAME protocol_tests COMMAND protocol_tests)

@@ -44,6 +44,7 @@ Voir `config/seeds.json`.
 - `src/pow.{h,cpp}` : vérification PoW simplifiée.
 - `src/net.{h,cpp}` : registre des commandes P2P (version, ping, inv, block, tx...).
 - `src/net_processing.{h,cpp}` : traitement réseau d’un nouveau bloc.
+- `src/protocol.{h,cpp}` : header wire protocol (magic, commande, taille payload, checksum) pour rapprocher la structure de Bitcoin Core.
 - `src/rpc/mining.{h,cpp}` : endpoint RPC mining.
 - `src/validation/validation.{h,cpp}` : validation contextuelle de bloc.
 - `src/init.{h,cpp}`, `src/validationinterface.{h,cpp}` et `src/node/context.{h,cpp}` : base d'initialisation et de signaux validation inspirée Bitcoin Core.
@@ -59,3 +60,4 @@ Voir `config/seeds.json`.
 
 - `test/unit/args_tests.cpp`
 - `test/unit/network_stack_tests.cpp`
+- `test/unit/protocol_tests.cpp`
