@@ -47,4 +47,4 @@ Cette première base relie les principaux sous-systèmes afin de démarrer le d�
 2. Implémenter une vraie racine de Merkle à partir des transactions sérialisées.
 3. Ajouter la validation complète d'en-tête (bits/PoW) et la difficulté.
 4. Étendre les tests unitaires consensus/kernel/rpc/net.
-5. Préparer les fichiers de configuration runtime (`bitcoin.conf`-like pour ELIT21).
+5. Étendre `config/ELIT21.conf` avec plus de paramètres réseau, RPC auth, et politique mempool.
