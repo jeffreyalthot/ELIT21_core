@@ -14,6 +14,7 @@ add_library(elit21_core
     src/init.cpp
     src/kernel/chainstate.cpp
     src/net_processing.cpp
+    src/node/chainman.cpp
     src/node/context.cpp
     src/node/mempool.cpp
     src/node/node.cpp
@@ -50,6 +51,10 @@ add_test(NAME chainparams_tests COMMAND chainparams_tests)
 add_executable(merkle_pow_tests test/unit/merkle_pow_tests.cpp)
 target_link_libraries(merkle_pow_tests PRIVATE elit21_core)
 add_test(NAME merkle_pow_tests COMMAND merkle_pow_tests)
+
+add_executable(chainman_tests test/unit/chainman_tests.cpp)
+target_link_libraries(chainman_tests PRIVATE elit21_core)
+add_test(NAME chainman_tests COMMAND chainman_tests)
 
 add_executable(validationinterface_tests test/unit/validationinterface_tests.cpp)
 target_link_libraries(validationinterface_tests PRIVATE elit21_core)
