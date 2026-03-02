@@ -52,6 +52,12 @@ Voir `config/seeds.json`.
 - `src/init.{h,cpp}`, `src/validationinterface.{h,cpp}` et `src/node/context.{h,cpp}` : base d'initialisation et de signaux validation inspirée Bitcoin Core.
 - `src/node/blockmanager.{h,cpp}` et `src/node/peerman.{h,cpp}` : gestionnaires réseau/blocs inspirés des rôles `BlockManager` et `PeerManager` de Bitcoin Core.
 - `src/common/args.{h,cpp}` + `config/ELIT21.conf` : parsing CLI/config (`bitcoin.conf`-like) pour préparer le runtime ELIT21.
+- `src/amount.{h,cpp}` : gestion de montants (`CAmount`, `MoneyRange`) en style Bitcoin Core.
+- `src/coins.{h,cpp}` : vue UTXO minimale inspirée de `coins.*`.
+- `src/checkpoint.{h,cpp}` : logique de checkpoints de chaîne.
+- `src/versionbits.{h,cpp}` + `src/deploymentstatus.{h,cpp}` : base activation soft-fork et état de déploiement.
+- `src/rpc/server.{h,cpp}` et `src/rpc/register.{h,cpp}` : serveur RPC minimal et enregistrement des namespaces.
+- `src/node/utxo_snapshot.{h,cpp}` : métadonnées snapshot UTXO.
 
 ## Tests supplémentaires
 
@@ -64,3 +70,4 @@ Voir `config/seeds.json`.
 - `test/unit/network_stack_tests.cpp`
 - `test/unit/protocol_tests.cpp`
 - `test/unit/bitcoin_layout_tests.cpp`
+- `test/unit/bitcoin_parity_modules_tests.cpp`

@@ -6,10 +6,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_library(elit21_core
+    src/amount.cpp
     src/addrman.cpp
     src/banman.cpp
+    src/checkpoint.cpp
     src/chain.cpp
     src/chainparams.cpp
+    src/coins.cpp
+    src/deploymentstatus.cpp
     src/common/args.cpp
     src/chainparamsbase.cpp
     src/consensus/params.cpp
@@ -23,6 +27,7 @@ add_library(elit21_core
     src/node/chainman.cpp
     src/node/context.cpp
     src/node/peerman.cpp
+    src/node/utxo_snapshot.cpp
     src/node/mempool.cpp
     src/node/node.cpp
     src/policy/policy.cpp
@@ -31,8 +36,11 @@ add_library(elit21_core
     src/txdb.cpp
     src/txmempool.cpp
     src/rpc/blockchain.cpp
+    src/rpc/register.cpp
+    src/rpc/server.cpp
     src/rpc/mining.cpp
     src/rpc/mempool.cpp
+    src/versionbits.cpp
     src/validation/block_validator.cpp
     src/validation/validation.cpp
     src/validation/tx_validator.cpp
@@ -90,3 +98,7 @@ add_test(NAME protocol_tests COMMAND protocol_tests)
 add_executable(bitcoin_layout_tests test/unit/bitcoin_layout_tests.cpp)
 target_link_libraries(bitcoin_layout_tests PRIVATE elit21_core)
 add_test(NAME bitcoin_layout_tests COMMAND bitcoin_layout_tests)
+
+add_executable(bitcoin_parity_modules_tests test/unit/bitcoin_parity_modules_tests.cpp)
+target_link_libraries(bitcoin_parity_modules_tests PRIVATE elit21_core)
+add_test(NAME bitcoin_parity_modules_tests COMMAND bitcoin_parity_modules_tests)
