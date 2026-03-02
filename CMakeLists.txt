@@ -15,9 +15,12 @@ add_library(elit21_core
     src/crypto/hash.cpp
     src/init.cpp
     src/kernel/chainstate.cpp
+    src/net.cpp
     src/net_processing.cpp
+    src/node/blockmanager.cpp
     src/node/chainman.cpp
     src/node/context.cpp
+    src/node/peerman.cpp
     src/node/mempool.cpp
     src/node/node.cpp
     src/policy/policy.cpp
@@ -70,3 +73,7 @@ add_test(NAME validationinterface_tests COMMAND validationinterface_tests)
 add_executable(args_tests test/unit/args_tests.cpp)
 target_link_libraries(args_tests PRIVATE elit21_core)
 add_test(NAME args_tests COMMAND args_tests)
+
+add_executable(network_stack_tests test/unit/network_stack_tests.cpp)
+target_link_libraries(network_stack_tests PRIVATE elit21_core)
+add_test(NAME network_stack_tests COMMAND network_stack_tests)

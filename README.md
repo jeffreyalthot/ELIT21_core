@@ -10,6 +10,7 @@ ELIT21 Core est une base de travail pour construire une implémentation blockcha
 - Ajout d'un gestionnaire de chaîne actif (`node/chainman`) inspiré du rôle de `ChainstateManager` dans Bitcoin Core pour centraliser l'acceptation des blocs.
 - Extension de l’architecture avec des fichiers analogues à Bitcoin Core: `chain*`, `chainparams*`, `pow*`, `net_processing*`, `validation*` global et RPC mining.
 - Ajout d'une base de fichiers `init*`, `validationinterface*` et `node/context*` pour structurer l'initialisation comme Bitcoin Core.
+- Ajout de modules réseau inspirés de Bitcoin Core: `net.*`, `node/blockmanager.*` et `node/peerman.*` pour préparer la couche P2P/stockage des blocs.
 
 ## Compilation rapide
 
@@ -27,6 +28,8 @@ ctest --test-dir build --output-on-failure
 - `src/ELIT21d.cpp`: point d'entrée minimal d'un nœud ELIT21.
 - `src/chain.{h,cpp}`: primitives de chaîne (`BlockIndex`, `Chain`, calcul de hash de bloc) inspirées de `src/chain.*` de Bitcoin Core.
 - `src/node/chainman.{h,cpp}`: gestion de la chaîne active et acceptation centralisée des blocs (genesis + chaînage).
+- `src/node/blockmanager.{h,cpp}`: indexation minimale des blocs reçus (protection anti-doublon).
+- `src/node/peerman.{h,cpp}` + `src/net.{h,cpp}`: base du protocole P2P (peers connectés + commandes réseau de base).
 - `src/validation/block_validator.cpp`: règles de validation de base utilisées par `Chainman`.
 - `src/validation/validation.cpp`: validation contextuelle (merkle + PoW simplifié).
 - `src/chainparams.cpp`: paramètres réseau de plus haut niveau.

@@ -60,7 +60,9 @@ int main()
 
     elit21::kernel::ChainState chainstate;
     elit21::node::Mempool mempool;
-    elit21::node::NodeContext ready_context{&chainstate, &mempool, &signals};
+    elit21::node::BlockManager block_manager;
+    elit21::node::PeerManager peer_manager;
+    elit21::node::NodeContext ready_context{&chainstate, &mempool, &block_manager, &peer_manager, &signals};
     assert(elit21::AppInitMain(ready_context));
 
     return 0;
