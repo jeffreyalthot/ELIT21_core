@@ -17,11 +17,13 @@ public:
 
     const kernel::ChainState& Chain() const;
     const consensus::Params& Params() const;
+    const std::string& LastValidationError() const;
 
 private:
     consensus::Params m_params;
     kernel::ChainState m_chainstate;
     bool m_started{false};
+    std::string m_last_validation_error;
 };
 
 } // namespace elit21::node
