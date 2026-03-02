@@ -71,3 +71,5 @@ Voir `config/seeds.json`.
 - `test/unit/protocol_tests.cpp`
 - `test/unit/bitcoin_layout_tests.cpp`
 - `test/unit/bitcoin_parity_modules_tests.cpp`
+
+- `test/unit/bitcoin_source_parity_layout_tests.cpp`

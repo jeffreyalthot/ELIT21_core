@@ -13,6 +13,15 @@ Ce document décrit les nouveaux fichiers ajoutés pour rapprocher ELIT21 Core d
 - `src/rpc/server.{h,cpp}` : registre minimal de commandes RPC.
 - `src/rpc/register.{h,cpp}` : enregistrement de namespaces RPC.
 
+- `src/clientversion.{h,cpp}` : identité/version du client ELIT21 (équivalent de rôle `clientversion.*`).
+- `src/util/system.{h,cpp}` et `src/util/strencodings.{h,cpp}` : base utilitaire système/encodage.
+- `src/interfaces/node.{h,cpp}` : interface de nœud orientée intégration.
+- `src/index/base.{h,cpp}` et `src/index/blockfilterindex.{h,cpp}` : fondation d’index de chaîne.
+- `src/policy/fees.{h,cpp}` et `src/policy/rbf.{h,cpp}` : primitives de policy (relay fee + opt-in RBF).
+- `src/node/connection_types.h`, `src/node/eviction.{h,cpp}`, `src/node/txreconciliation.{h,cpp}`, `src/node/warnings.{h,cpp}` : composants node/p2p de structure Bitcoin-like.
+- `src/rpc/net.{h,cpp}` et `src/rpc/rawtransaction.{h,cpp}` : endpoints RPC réseau/transaction brute.
+- `src/wallet/wallet.{h,cpp}` : squelette wallet ELIT21.
+
 ## Objectif
 
 Recréer une base de fichiers proche de Bitcoin Core tout en gardant une implémentation ELIT21-specific et progressive.

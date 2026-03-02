@@ -14,6 +14,7 @@ ELIT21 Core est une base de travail pour construire une implémentation blockcha
 - Ajout d'une première couche de protocole wire `protocol.*` (header de message réseau, magic bytes, validation de commande) alignée avec la structure de `protocol.h` de Bitcoin Core.
 - Extension de la compatibilité d'arborescence Bitcoin Core avec `addrman*`, `banman*`, `txdb*` et `txmempool*` (adaptés à ELIT21).
 - Ajout d'une nouvelle vague de modules "bitcoin-like" pour poursuivre la parité de structure: `amount*`, `coins*`, `checkpoint*`, `versionbits*`, `deploymentstatus*`, `rpc/server*`, `rpc/register*` et `node/utxo_snapshot*`.
+- Extension de la parité de layout Bitcoin Core avec de nouveaux fichiers de structure (`clientversion*`, `util/system*`, `util/strencodings*`, `interfaces/node*`, `index/base*`, `index/blockfilterindex*`, `policy/fees*`, `policy/rbf*`, `node/eviction*`, `node/txreconciliation*`, `node/warnings*`, `rpc/net*`, `rpc/rawtransaction*`, `wallet/wallet*`).
 
 ## Compilation rapide
 

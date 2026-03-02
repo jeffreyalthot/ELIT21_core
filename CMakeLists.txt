@@ -102,3 +102,7 @@ add_test(NAME bitcoin_layout_tests COMMAND bitcoin_layout_tests)
 add_executable(bitcoin_parity_modules_tests test/unit/bitcoin_parity_modules_tests.cpp)
 target_link_libraries(bitcoin_parity_modules_tests PRIVATE elit21_core)
 add_test(NAME bitcoin_parity_modules_tests COMMAND bitcoin_parity_modules_tests)
+
+add_executable(bitcoin_source_parity_layout_tests test/unit/bitcoin_source_parity_layout_tests.cpp)
+target_compile_definitions(bitcoin_source_parity_layout_tests PRIVATE PROJECT_SOURCE_DIR="${CMAKE_SOURCE_DIR}")
+add_test(NAME bitcoin_source_parity_layout_tests COMMAND bitcoin_source_parity_layout_tests)
