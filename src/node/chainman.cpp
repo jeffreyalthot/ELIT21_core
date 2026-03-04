@@ -5,23 +5,29 @@ namespace elit21::node {
 bool Chainman::AcceptBlock(const Block& block, std::string& error)
 {
     if (m_active_chainstate.Tip() == nullptr) {
-        const validation::ValidationResult result = validation::ValidateGenesisBlock(block);
-        if (!result.valid) {
-            error = result.reason;
+        const validation::ValidationResult genesis_result = validation::ValidateGenesisBlock(block);
+        if (genesis_result.valid) {
+            if (!m_active_chainstate.AddBlock(block)) {
+                error = "chainstate.add_block_failed";
+                return false;
+            }
+            error.clear();
+            return true;
+        }
+
+        if (block.header.previous_block_hash.empty()) {
+            error = genesis_result.reason;
             return false;
         }
 
-        if (!m_active_chainstate.AddBlock(block)) {
-            error = "chainstate.add_block_failed";
+        if (!m_active_chainstate.AddAssumedGenesis(block.header.previous_block_hash, block.header.timestamp)) {
+            error = "chainstate.add_assumed_genesis_failed";
             return false;
         }
-        error.clear();
-        return true;
     }
 
-    const std::size_t next_height = m_active_chainstate.Height() + 1;
     const validation::ValidationResult result =
-        validation::ValidateBlockLink(*m_active_chainstate.Tip(), block, next_height);
+        validation::ValidateBlockLink(m_active_chainstate.TipHash(), m_active_chainstate.Tip()->header.timestamp, block);
     if (!result.valid) {
         error = result.reason;
         return false;

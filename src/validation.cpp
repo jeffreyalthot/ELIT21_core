@@ -1,5 +1,7 @@
 #include "validation.h"
 
+#include "chain.h"
+
 namespace elit21 {
 
 ValidationReport ValidateBlockForChain(const Block* previous, const Block& candidate, const std::size_t expected_height)
@@ -9,7 +11,8 @@ ValidationReport ValidateBlockForChain(const Block* previous, const Block& candi
         return {result.valid, result.reason};
     }
 
-    const auto result = validation::ValidateBlockLink(*previous, candidate, expected_height);
+    const std::string previous_block_hash = ComputeBlockHash(previous->header, expected_height - 1);
+    const auto result = validation::ValidateBlockLink(previous_block_hash, previous->header.timestamp, candidate);
     return {result.valid, result.reason};
 }
 

@@ -64,6 +64,15 @@ int main()
     ok &= Expect(!chainman.AcceptBlock(invalid, error), "rejects invalid block link");
     ok &= Expect(error == "candidate.previous_block_hash_mismatch", "sets detailed validation error");
 
+
+    elit21::node::Chainman bootstrap_chainman;
+    const elit21::Block remote_block1 = BuildNextBlock(genesis, 1);
+    ok &= Expect(bootstrap_chainman.AcceptBlock(remote_block1, error), "accepts block when genesis is missing from network");
+    ok &= Expect(bootstrap_chainman.ActiveChain().Height() == 1, "height is 1 after local genesis bootstrap");
+    ok &= Expect(
+        bootstrap_chainman.ActiveChain().HasBlock(remote_block1.header.previous_block_hash),
+        "chainstate stores assumed genesis hash");
+
     const elit21::Block block1 = BuildNextBlock(genesis, 1);
     ok &= Expect(chainman.AcceptBlock(block1, error), "accepts valid next block");
     ok &= Expect(chainman.ActiveChain().Height() == 1, "height is 1 after second block");
