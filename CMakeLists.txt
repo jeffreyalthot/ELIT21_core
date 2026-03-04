@@ -22,8 +22,11 @@ add_library(elit21_core
     src/init.cpp
     src/kernel/chainstate.cpp
     src/net.cpp
+    src/net_permissions.cpp
     src/net_processing.cpp
+    src/node/addrdb.cpp
     src/node/blockmanager.cpp
+    src/node/blockstorage.cpp
     src/node/chainman.cpp
     src/node/context.cpp
     src/node/peerman.cpp
@@ -40,6 +43,7 @@ add_library(elit21_core
     src/rpc/server.cpp
     src/rpc/mining.cpp
     src/rpc/mempool.cpp
+    src/rpc/util.cpp
     src/versionbits.cpp
     src/validation/block_validator.cpp
     src/validation/validation.cpp
@@ -100,6 +104,10 @@ target_link_libraries(bitcoin_layout_tests PRIVATE elit21_core)
 add_test(NAME bitcoin_layout_tests COMMAND bitcoin_layout_tests)
 
 add_executable(bitcoin_parity_modules_tests test/unit/bitcoin_parity_modules_tests.cpp)
+add_executable(bitcoin_new_modules_tests test/unit/bitcoin_new_modules_tests.cpp)
+target_link_libraries(bitcoin_new_modules_tests PRIVATE elit21_core)
+add_test(NAME bitcoin_new_modules_tests COMMAND bitcoin_new_modules_tests)
+
 target_link_libraries(bitcoin_parity_modules_tests PRIVATE elit21_core)
 add_test(NAME bitcoin_parity_modules_tests COMMAND bitcoin_parity_modules_tests)
 
