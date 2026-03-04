@@ -38,4 +38,5 @@ Recréer une base de fichiers proche de Bitcoin Core tout en gardant une implém
 - `src/node/interface_ui.{h,cpp}` : base d’interface UI (`info/warning/error`) inspirée du rôle de `node/interface_ui.*`.
 - `src/logging.{h,cpp}` : journalisation catégorisée côté runtime (net/rpc/validation/mempool/node).
 - `src/util/time.{h,cpp}` : utilitaires de temps UTC (`GetTimeSeconds`, `FormatISO8601`) similaires à la couche utilitaire de Bitcoin Core.
+- `src/common/url.{h,cpp}`, `src/node/mempool_args.{h,cpp}`, `src/rpc/protocol.{h,cpp}` : socle additionnel pour parser les requêtes URL, valider les options mempool et formaliser les réponses JSON-RPC dans un style Bitcoin-like.
 

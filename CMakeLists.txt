@@ -18,6 +18,7 @@ add_library(elit21_core
     src/common/settings.cpp
     src/common/messages.cpp
     src/common/init.cpp
+    src/common/url.cpp
     src/chainparamsbase.cpp
     src/consensus/params.cpp
     src/consensus/merkle.cpp
@@ -40,6 +41,7 @@ add_library(elit21_core
     src/node/peerman.cpp
     src/node/utxo_snapshot.cpp
     src/node/mempool.cpp
+    src/node/mempool_args.cpp
     src/node/txorphanage.cpp
     src/node/node.cpp
     src/node/interface_ui.cpp
@@ -54,6 +56,7 @@ add_library(elit21_core
     src/rpc/server.cpp
     src/rpc/mining.cpp
     src/rpc/mempool.cpp
+    src/rpc/protocol.cpp
     src/rpc/util.cpp
     src/util/time.cpp
     src/rpc/request.cpp
@@ -137,3 +140,7 @@ add_test(NAME bitcoin_runtime_modules_tests COMMAND bitcoin_runtime_modules_test
 add_executable(bitcoin_next_parity_modules_tests test/unit/bitcoin_next_parity_modules_tests.cpp)
 target_link_libraries(bitcoin_next_parity_modules_tests PRIVATE elit21_core)
 add_test(NAME bitcoin_next_parity_modules_tests COMMAND bitcoin_next_parity_modules_tests)
+
+add_executable(bitcoin_additional_parity_modules_tests test/unit/bitcoin_additional_parity_modules_tests.cpp)
+target_link_libraries(bitcoin_additional_parity_modules_tests PRIVATE elit21_core)
+add_test(NAME bitcoin_additional_parity_modules_tests COMMAND bitcoin_additional_parity_modules_tests)
