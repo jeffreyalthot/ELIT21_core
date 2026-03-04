@@ -18,6 +18,7 @@ add_library(elit21_core
     src/common/settings.cpp
     src/common/messages.cpp
     src/common/init.cpp
+    src/common/configfile.cpp
     src/common/url.cpp
     src/chainparamsbase.cpp
     src/consensus/params.cpp
@@ -33,6 +34,7 @@ add_library(elit21_core
     src/node/blockmanager_args.cpp
     src/node/addrdb.cpp
     src/node/blockmanager.cpp
+    src/node/blockmanager_opts.cpp
     src/node/blockstorage.cpp
     src/node/caches.cpp
     src/node/chainman.cpp
@@ -54,6 +56,7 @@ add_library(elit21_core
     src/txdb.cpp
     src/txmempool.cpp
     src/rpc/blockchain.cpp
+    src/rpc/blockchain_util.cpp
     src/rpc/client.cpp
     src/rpc/register.cpp
     src/rpc/server.cpp
@@ -151,3 +154,8 @@ add_test(NAME bitcoin_additional_parity_modules_tests COMMAND bitcoin_additional
 add_executable(bitcoin_latest_parity_modules_tests test/unit/bitcoin_latest_parity_modules_tests.cpp)
 target_link_libraries(bitcoin_latest_parity_modules_tests PRIVATE elit21_core)
 add_test(NAME bitcoin_latest_parity_modules_tests COMMAND bitcoin_latest_parity_modules_tests)
+
+
+add_executable(bitcoin_future_parity_modules_tests test/unit/bitcoin_future_parity_modules_tests.cpp)
+target_link_libraries(bitcoin_future_parity_modules_tests PRIVATE elit21_core)
+add_test(NAME bitcoin_future_parity_modules_tests COMMAND bitcoin_future_parity_modules_tests)

@@ -70,6 +70,7 @@ Voir `config/seeds.json`.
 - `src/node/chainstate.{h,cpp}` et `src/node/blockmanager_args.{h,cpp}` : ajout de briques node pour stats d'état de chaîne et paramètres block manager.
 - `src/common/url.{h,cpp}`, `src/node/mempool_args.{h,cpp}` et `src/rpc/protocol.{h,cpp}` : nouvelle vague de modules pour rapprocher la structure des couches utilitaires, node et RPC du layout Bitcoin Core.
 - `src/node/caches.{h,cpp}`, `src/node/kernel_notifications.{h,cpp}` et `src/rpc/client.{h,cpp}` : extension du layout Bitcoin Core pour les caches node, notifications kernel et client RPC CLI.
+- `src/common/configfile.{h,cpp}`, `src/node/blockmanager_opts.{h,cpp}` et `src/rpc/blockchain_util.{h,cpp}` : nouvelle extension de layout Bitcoin Core pour le parsing de configuration, les options block manager et les utilitaires blockchain côté RPC.
 
 ## Tests supplémentaires
 
@@ -88,3 +89,4 @@ Voir `config/seeds.json`.
 - `test/unit/bitcoin_runtime_modules_tests.cpp`
 - `test/unit/bitcoin_additional_parity_modules_tests.cpp`
 - `test/unit/bitcoin_latest_parity_modules_tests.cpp`
+- `test/unit/bitcoin_future_parity_modules_tests.cpp`

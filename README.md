@@ -20,6 +20,7 @@ ELIT21 Core est une base de travail pour construire une implémentation blockcha
 - Ajout des modules `logging*` et `util/time*` pour rapprocher encore la couche runtime des primitives présentes dans Bitcoin Core (catégories de logs + utilitaires temporels UTC).
 - Extension de parité de fichiers Bitcoin Core avec `common/init*`, `node/database_args*`, `node/types*` et `rpc/server_util*` pour préparer l'initialisation runtime, les chemins DB nœud, les constantes/propriétés de protocole et les helpers RPC serveur.
 - Nouvelle vague de parité Bitcoin Core avec `node/caches*`, `node/kernel_notifications*` et `rpc/client*` pour structurer la répartition des caches node, les notifications kernel->node et le parsing RPC côté client CLI.
+- Extension supplémentaire de la parité Bitcoin Core avec `common/configfile*`, `node/blockmanager_opts*` et `rpc/blockchain_util*` pour couvrir la lecture de configuration, les options de gestion des fichiers blocs et les helpers blockchain RPC.
 
 ## Compilation rapide
 
@@ -51,3 +52,4 @@ ctest --test-dir build --output-on-failure
 - `test/unit/bitcoin_runtime_modules_tests.cpp`: couverture des nouveaux modules runtime (`logging`, `util/time`).
 - `test/unit/bitcoin_additional_parity_modules_tests.cpp`: validation des nouveaux modules de parité (`common/url`, `node/mempool_args`, `rpc/protocol`).
 - `test/unit/bitcoin_latest_parity_modules_tests.cpp`: validation des modules de parité supplémentaires (`node/caches`, `node/kernel_notifications`, `rpc/client`).
+- `test/unit/bitcoin_future_parity_modules_tests.cpp`: validation de la nouvelle vague (`common/configfile`, `node/blockmanager_opts`, `rpc/blockchain_util`).
