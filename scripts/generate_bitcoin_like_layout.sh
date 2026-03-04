@@ -22,6 +22,8 @@ files=(
   src/policy/fees.h src/policy/fees.cpp
   src/policy/rbf.h src/policy/rbf.cpp
   src/node/connection_types.h
+  src/node/caches.h src/node/caches.cpp
+  src/node/kernel_notifications.h src/node/kernel_notifications.cpp
   src/node/txorphanage.h src/node/txorphanage.cpp
   src/node/interface_ui.h src/node/interface_ui.cpp
   src/node/eviction.h src/node/eviction.cpp
@@ -29,6 +31,7 @@ files=(
   src/node/warnings.h src/node/warnings.cpp
   src/node/utxo_snapshot.h src/node/utxo_snapshot.cpp
   src/rpc/net.h src/rpc/net.cpp
+  src/rpc/client.h src/rpc/client.cpp
   src/rpc/rawtransaction.h src/rpc/rawtransaction.cpp
   src/rpc/request.h src/rpc/request.cpp
   src/rpc/server.h src/rpc/server.cpp
