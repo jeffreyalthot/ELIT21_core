@@ -69,6 +69,7 @@ Voir `config/seeds.json`.
 - `src/validation.{h,cpp}` : façade de validation globale alignée sur le naming de Bitcoin Core avec adaptation ELIT21.
 - `src/node/chainstate.{h,cpp}` et `src/node/blockmanager_args.{h,cpp}` : ajout de briques node pour stats d'état de chaîne et paramètres block manager.
 - `src/common/url.{h,cpp}`, `src/node/mempool_args.{h,cpp}` et `src/rpc/protocol.{h,cpp}` : nouvelle vague de modules pour rapprocher la structure des couches utilitaires, node et RPC du layout Bitcoin Core.
+- `src/node/caches.{h,cpp}`, `src/node/kernel_notifications.{h,cpp}` et `src/rpc/client.{h,cpp}` : extension du layout Bitcoin Core pour les caches node, notifications kernel et client RPC CLI.
 
 ## Tests supplémentaires
 
@@ -86,3 +87,4 @@ Voir `config/seeds.json`.
 - `test/unit/bitcoin_source_parity_layout_tests.cpp`
 - `test/unit/bitcoin_runtime_modules_tests.cpp`
 - `test/unit/bitcoin_additional_parity_modules_tests.cpp`
+- `test/unit/bitcoin_latest_parity_modules_tests.cpp`

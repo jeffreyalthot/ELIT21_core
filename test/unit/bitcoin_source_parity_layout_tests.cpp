@@ -25,7 +25,7 @@ int main()
     bool ok = true;
     const fs::path source_root{PROJECT_SOURCE_DIR};
 
-    constexpr std::array<std::string_view, 69> kExpectedFiles = {
+    constexpr std::array<std::string_view, 75> kExpectedFiles = {
         "src/clientversion.h",
         "src/clientversion.cpp",
         "src/logging.h",
@@ -42,8 +42,14 @@ int main()
         "src/node/types.cpp",
         "src/node/mempool_args.h",
         "src/node/mempool_args.cpp",
+        "src/node/caches.h",
+        "src/node/caches.cpp",
+        "src/node/kernel_notifications.h",
+        "src/node/kernel_notifications.cpp",
         "src/rpc/server_util.h",
         "src/rpc/server_util.cpp",
+        "src/rpc/client.h",
+        "src/rpc/client.cpp",
         "src/rpc/protocol.h",
         "src/rpc/protocol.cpp",
         "src/util/system.h",
