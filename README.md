@@ -48,3 +48,4 @@ ctest --test-dir build --output-on-failure
 - `src/chainparams.cpp`: paramètres réseau de plus haut niveau.
 - `test/unit/*.cpp`: tests bloc/mempool + nouveaux tests chainparams, merkle/pow, chain manager, compatibilité de layout et modules de parité Bitcoin-like.
 - `test/unit/bitcoin_runtime_modules_tests.cpp`: couverture des nouveaux modules runtime (`logging`, `util/time`).
+- `test/unit/bitcoin_additional_parity_modules_tests.cpp`: validation des nouveaux modules de parité (`common/url`, `node/mempool_args`, `rpc/protocol`).
