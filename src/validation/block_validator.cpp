@@ -1,7 +1,5 @@
 #include "validation/block_validator.h"
 
-#include "chain.h"
-
 #include <string>
 
 namespace elit21::validation {
@@ -31,15 +29,16 @@ ValidationResult ValidateGenesisBlock(const Block& block)
     return {true, ""};
 }
 
-ValidationResult ValidateBlockLink(const Block& previous, const Block& candidate, const std::size_t expected_height)
+ValidationResult ValidateBlockLink(
+    const std::string& previous_block_hash,
+    const std::uint64_t previous_block_timestamp,
+    const Block& candidate)
 {
-    const std::string previous_block_id = ComputeBlockHash(previous.header, expected_height - 1);
-
-    if (candidate.header.previous_block_hash != previous_block_id) {
+    if (candidate.header.previous_block_hash != previous_block_hash) {
         return {false, "candidate.previous_block_hash_mismatch"};
     }
 
-    if (candidate.header.timestamp < previous.header.timestamp) {
+    if (candidate.header.timestamp < previous_block_timestamp) {
         return {false, "candidate.timestamp_before_previous"};
     }
 

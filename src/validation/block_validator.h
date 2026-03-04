@@ -3,7 +3,7 @@
 
 #include "primitives/block.h"
 
-#include <cstddef>
+#include <cstdint>
 #include <string>
 
 namespace elit21::validation {
@@ -14,7 +14,10 @@ struct ValidationResult {
 };
 
 ValidationResult ValidateGenesisBlock(const Block& block);
-ValidationResult ValidateBlockLink(const Block& previous, const Block& candidate, std::size_t expected_height);
+ValidationResult ValidateBlockLink(
+    const std::string& previous_block_hash,
+    std::uint64_t previous_block_timestamp,
+    const Block& candidate);
 
 } // namespace elit21::validation
 

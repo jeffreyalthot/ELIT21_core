@@ -4,6 +4,7 @@
 #include "primitives/block.h"
 
 #include <cstddef>
+#include <cstdint>
 #include <string>
 #include <vector>
 
@@ -20,6 +21,7 @@ std::string ComputeBlockHash(const BlockHeader& header, std::size_t height);
 class Chain {
 public:
     bool SetTip(const Block& block);
+    bool SetAssumedGenesis(const std::string& block_hash, std::uint64_t timestamp);
     const BlockIndex* Tip() const;
     const BlockIndex* AtHeight(std::size_t height) const;
     std::size_t Height() const;

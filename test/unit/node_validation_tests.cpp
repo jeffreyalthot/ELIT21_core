@@ -75,6 +75,13 @@ int main()
     ok &= Expect(!node.SubmitBlock(invalid), "rejects invalid previous hash");
     ok &= Expect(node.LastValidationError() == "candidate.previous_block_hash_mismatch", "reports hash mismatch");
 
+
+    elit21::node::Node bootstrap_node(elit21::consensus::MainNetParams());
+    ok &= Expect(bootstrap_node.Start(), "bootstrap node starts");
+    const elit21::Block remote_block1 = BuildNextBlock(genesis, 1);
+    ok &= Expect(bootstrap_node.SubmitBlock(remote_block1), "accepts block when genesis is not transmitted");
+    ok &= Expect(bootstrap_node.Chain().Height() == 1, "bootstrap chain height is 1 after first received block");
+
     const elit21::Block block1 = BuildNextBlock(genesis, 1);
     ok &= Expect(node.SubmitBlock(block1), "accepts valid linked block");
     ok &= Expect(node.Chain().Height() == 1, "height increments after valid block");

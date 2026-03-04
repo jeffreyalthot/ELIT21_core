@@ -14,6 +14,23 @@ std::string ComputeBlockHash(const BlockHeader& header, const std::size_t height
         "|" + std::to_string(height));
 }
 
+bool Chain::SetAssumedGenesis(const std::string& block_hash, const std::uint64_t timestamp)
+{
+    if (!m_chain.empty()) {
+        return false;
+    }
+
+    BlockIndex index;
+    index.height = 0;
+    index.block_hash = block_hash;
+    index.header.previous_block_hash = "0";
+    index.header.merkle_root = "assumed-genesis";
+    index.header.timestamp = timestamp;
+    m_chain.push_back(index);
+
+    return true;
+}
+
 bool Chain::SetTip(const Block& block)
 {
     const std::size_t next_height = m_chain.size();
