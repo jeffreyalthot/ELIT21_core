@@ -10,6 +10,7 @@ files=(
   src/versionbits.h src/versionbits.cpp
   src/deploymentstatus.h src/deploymentstatus.cpp
   src/common/settings.h src/common/settings.cpp
+  src/common/messages.h src/common/messages.cpp
   src/kernel/context.h src/kernel/context.cpp
   src/util/system.h src/util/system.cpp
   src/util/strencodings.h src/util/strencodings.cpp
@@ -20,6 +21,7 @@ files=(
   src/policy/rbf.h src/policy/rbf.cpp
   src/node/connection_types.h
   src/node/txorphanage.h src/node/txorphanage.cpp
+  src/node/interface_ui.h src/node/interface_ui.cpp
   src/node/eviction.h src/node/eviction.cpp
   src/node/txreconciliation.h src/node/txreconciliation.cpp
   src/node/warnings.h src/node/warnings.cpp

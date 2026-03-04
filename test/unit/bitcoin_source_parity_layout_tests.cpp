@@ -28,6 +28,8 @@ int main()
     constexpr std::array<std::string_view, 45> kExpectedFiles = {
         "src/clientversion.h",
         "src/clientversion.cpp",
+        "src/common/messages.h",
+        "src/common/messages.cpp",
         "src/util/system.h",
         "src/util/system.cpp",
         "src/util/strencodings.h",
@@ -49,6 +51,8 @@ int main()
         "src/node/connection_types.h",
         "src/node/txorphanage.h",
         "src/node/txorphanage.cpp",
+        "src/node/interface_ui.h",
+        "src/node/interface_ui.cpp",
         "src/node/blockstorage.h",
         "src/node/blockstorage.cpp",
         "src/node/eviction.h",

@@ -34,3 +34,6 @@ Recréer une base de fichiers proche de Bitcoin Core tout en gardant une implém
 - `src/kernel/context.{h,cpp}` : objet de contexte kernel pour brancher le chainstate actif.
 - `src/node/txorphanage.{h,cpp}` : stockage des transactions orphelines dans la pile P2P.
 - `src/rpc/request.{h,cpp}` : modèle de requête RPC + validation de méthode.
+- `src/common/messages.{h,cpp}` : catalogue minimal de messages internes pour aligner la couche `common/` avec l’esprit Bitcoin Core.
+- `src/node/interface_ui.{h,cpp}` : base d’interface UI (`info/warning/error`) inspirée du rôle de `node/interface_ui.*`.
+

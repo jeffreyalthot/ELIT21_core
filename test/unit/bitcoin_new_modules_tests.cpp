@@ -1,7 +1,9 @@
+#include "common/messages.h"
 #include "common/settings.h"
 #include "net_permissions.h"
 #include "node/addrdb.h"
 #include "node/blockstorage.h"
+#include "node/interface_ui.h"
 #include "node/txorphanage.h"
 #include "rpc/request.h"
 #include "rpc/util.h"
@@ -29,10 +31,22 @@ int main()
     assert(elit21::rpc::IsValidRequest(rpc_request));
     assert(!elit21::rpc::IsValidRequest({"get-block-count", {}}));
 
+    assert(elit21::common::DefaultMessage(elit21::common::MessageId::kNodeStarting) == "ELIT21 node is starting");
+
     elit21::common::Settings settings;
     settings.Set("chain", "main");
     assert(settings.Has("chain"));
     assert(settings.Get("chain").value_or("") == "main");
+
+    elit21::node::UiInterface ui;
+    ui.PushMessage(elit21::node::UiMessageType::kWarning, "peer misbehaving");
+    assert(ui.PendingCount() == 1);
+
+    const auto message = ui.PopMessage();
+    assert(message.has_value());
+    assert(message->type == elit21::node::UiMessageType::kWarning);
+    assert(message->text == "peer misbehaving");
+    assert(!ui.PopMessage().has_value());
 
     elit21::node::TxOrphanage orphanage;
     assert(orphanage.AddOrphan("tx1", {"parent1"}));
