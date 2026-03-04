@@ -25,7 +25,7 @@ int main()
     bool ok = true;
     const fs::path source_root{PROJECT_SOURCE_DIR};
 
-    constexpr std::array<std::string_view, 75> kExpectedFiles = {
+    constexpr std::array<std::string_view, 81> kExpectedFiles = {
         "src/clientversion.h",
         "src/clientversion.cpp",
         "src/logging.h",
@@ -36,6 +36,8 @@ int main()
         "src/common/init.cpp",
         "src/common/url.h",
         "src/common/url.cpp",
+        "src/common/configfile.h",
+        "src/common/configfile.cpp",
         "src/node/database_args.h",
         "src/node/database_args.cpp",
         "src/node/types.h",
@@ -75,7 +77,9 @@ int main()
         "src/node/addrdb.h",
         "src/node/addrdb.cpp",
         "src/node/blockmanager_args.h",
+        "src/node/blockmanager_opts.h",
         "src/node/blockmanager_args.cpp",
+        "src/node/blockmanager_opts.cpp",
         "src/node/chainstate.h",
         "src/node/chainstate.cpp",
         "src/node/connection_types.h",
@@ -92,7 +96,9 @@ int main()
         "src/node/warnings.h",
         "src/node/warnings.cpp",
         "src/rpc/net.h",
+        "src/rpc/blockchain_util.h",
         "src/rpc/net.cpp",
+        "src/rpc/blockchain_util.cpp",
         "src/rpc/util.h",
         "src/rpc/util.cpp",
         "src/rpc/rawtransaction.h",

@@ -40,4 +40,5 @@ Recréer une base de fichiers proche de Bitcoin Core tout en gardant une implém
 - `src/util/time.{h,cpp}` : utilitaires de temps UTC (`GetTimeSeconds`, `FormatISO8601`) similaires à la couche utilitaire de Bitcoin Core.
 - `src/common/url.{h,cpp}`, `src/node/mempool_args.{h,cpp}`, `src/rpc/protocol.{h,cpp}` : socle additionnel pour parser les requêtes URL, valider les options mempool et formaliser les réponses JSON-RPC dans un style Bitcoin-like.
 - `src/node/caches.{h,cpp}`, `src/node/kernel_notifications.{h,cpp}`, `src/rpc/client.{h,cpp}` : nouvelle extension de parité pour la gestion des budgets de cache node, les notifications noyau et la construction de requêtes RPC côté client.
+- `src/common/configfile.{h,cpp}`, `src/node/blockmanager_opts.{h,cpp}`, `src/rpc/blockchain_util.{h,cpp}` : extension de parité pour la lecture de configuration, la validation des options block manager et les helpers blockchain RPC.
 

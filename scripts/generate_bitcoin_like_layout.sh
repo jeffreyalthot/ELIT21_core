@@ -12,6 +12,7 @@ files=(
   src/deploymentstatus.h src/deploymentstatus.cpp
   src/common/settings.h src/common/settings.cpp
   src/common/messages.h src/common/messages.cpp
+  src/common/configfile.h src/common/configfile.cpp
   src/kernel/context.h src/kernel/context.cpp
   src/util/system.h src/util/system.cpp
   src/util/time.h src/util/time.cpp
@@ -24,12 +25,14 @@ files=(
   src/node/connection_types.h
   src/node/caches.h src/node/caches.cpp
   src/node/kernel_notifications.h src/node/kernel_notifications.cpp
+  src/node/blockmanager_opts.h src/node/blockmanager_opts.cpp
   src/node/txorphanage.h src/node/txorphanage.cpp
   src/node/interface_ui.h src/node/interface_ui.cpp
   src/node/eviction.h src/node/eviction.cpp
   src/node/txreconciliation.h src/node/txreconciliation.cpp
   src/node/warnings.h src/node/warnings.cpp
   src/node/utxo_snapshot.h src/node/utxo_snapshot.cpp
+  src/rpc/blockchain_util.h src/rpc/blockchain_util.cpp
   src/rpc/net.h src/rpc/net.cpp
   src/rpc/client.h src/rpc/client.cpp
   src/rpc/rawtransaction.h src/rpc/rawtransaction.cpp
