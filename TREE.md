@@ -58,6 +58,10 @@ Voir `config/seeds.json`.
 - `src/versionbits.{h,cpp}` + `src/deploymentstatus.{h,cpp}` : base activation soft-fork et état de déploiement.
 - `src/rpc/server.{h,cpp}` et `src/rpc/register.{h,cpp}` : serveur RPC minimal et enregistrement des namespaces.
 - `src/node/utxo_snapshot.{h,cpp}` : métadonnées snapshot UTXO.
+- `src/common/settings.{h,cpp}` : registre de paramètres runtime (analogue à `common/settings.*`).
+- `src/kernel/context.{h,cpp}` : conteneur de contexte kernel pour partager l'état de chaîne.
+- `src/node/txorphanage.{h,cpp}` : gestion des transactions orphelines en attente de parents.
+- `src/rpc/request.{h,cpp}` : structure et validation minimale des requêtes RPC.
 
 ## Tests supplémentaires
 

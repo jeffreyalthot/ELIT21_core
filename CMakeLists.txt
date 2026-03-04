@@ -15,12 +15,14 @@ add_library(elit21_core
     src/coins.cpp
     src/deploymentstatus.cpp
     src/common/args.cpp
+    src/common/settings.cpp
     src/chainparamsbase.cpp
     src/consensus/params.cpp
     src/consensus/merkle.cpp
     src/crypto/hash.cpp
     src/init.cpp
     src/kernel/chainstate.cpp
+    src/kernel/context.cpp
     src/net.cpp
     src/net_permissions.cpp
     src/net_processing.cpp
@@ -32,6 +34,7 @@ add_library(elit21_core
     src/node/peerman.cpp
     src/node/utxo_snapshot.cpp
     src/node/mempool.cpp
+    src/node/txorphanage.cpp
     src/node/node.cpp
     src/policy/policy.cpp
     src/pow.cpp
@@ -44,6 +47,7 @@ add_library(elit21_core
     src/rpc/mining.cpp
     src/rpc/mempool.cpp
     src/rpc/util.cpp
+    src/rpc/request.cpp
     src/versionbits.cpp
     src/validation/block_validator.cpp
     src/validation/validation.cpp
