@@ -62,6 +62,8 @@ Voir `config/seeds.json`.
 - `src/kernel/context.{h,cpp}` : conteneur de contexte kernel pour partager l'état de chaîne.
 - `src/node/txorphanage.{h,cpp}` : gestion des transactions orphelines en attente de parents.
 - `src/rpc/request.{h,cpp}` : structure et validation minimale des requêtes RPC.
+- `src/common/messages.{h,cpp}` : catalogue de messages système côté runtime ELIT21.
+- `src/node/interface_ui.{h,cpp}` : file de notifications UI interne du nœud.
 
 ## Tests supplémentaires
 

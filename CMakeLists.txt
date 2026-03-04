@@ -16,6 +16,7 @@ add_library(elit21_core
     src/deploymentstatus.cpp
     src/common/args.cpp
     src/common/settings.cpp
+    src/common/messages.cpp
     src/chainparamsbase.cpp
     src/consensus/params.cpp
     src/consensus/merkle.cpp
@@ -36,6 +37,7 @@ add_library(elit21_core
     src/node/mempool.cpp
     src/node/txorphanage.cpp
     src/node/node.cpp
+    src/node/interface_ui.cpp
     src/policy/policy.cpp
     src/pow.cpp
     src/protocol.cpp
