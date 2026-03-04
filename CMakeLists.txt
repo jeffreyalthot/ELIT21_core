@@ -24,6 +24,7 @@ add_library(elit21_core
     src/init.cpp
     src/kernel/chainstate.cpp
     src/kernel/context.cpp
+    src/logging.cpp
     src/net.cpp
     src/net_permissions.cpp
     src/net_processing.cpp
@@ -49,6 +50,7 @@ add_library(elit21_core
     src/rpc/mining.cpp
     src/rpc/mempool.cpp
     src/rpc/util.cpp
+    src/util/time.cpp
     src/rpc/request.cpp
     src/versionbits.cpp
     src/validation/block_validator.cpp
@@ -120,3 +122,7 @@ add_test(NAME bitcoin_parity_modules_tests COMMAND bitcoin_parity_modules_tests)
 add_executable(bitcoin_source_parity_layout_tests test/unit/bitcoin_source_parity_layout_tests.cpp)
 target_compile_definitions(bitcoin_source_parity_layout_tests PRIVATE PROJECT_SOURCE_DIR="${CMAKE_SOURCE_DIR}")
 add_test(NAME bitcoin_source_parity_layout_tests COMMAND bitcoin_source_parity_layout_tests)
+
+add_executable(bitcoin_runtime_modules_tests test/unit/bitcoin_runtime_modules_tests.cpp)
+target_link_libraries(bitcoin_runtime_modules_tests PRIVATE elit21_core)
+add_test(NAME bitcoin_runtime_modules_tests COMMAND bitcoin_runtime_modules_tests)

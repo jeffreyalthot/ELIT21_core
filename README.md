@@ -17,6 +17,7 @@ ELIT21 Core est une base de travail pour construire une implémentation blockcha
 - Extension de la parité de layout Bitcoin Core avec de nouveaux fichiers de structure (`clientversion*`, `util/system*`, `util/strencodings*`, `interfaces/node*`, `index/base*`, `index/blockfilterindex*`, `policy/fees*`, `policy/rbf*`, `node/eviction*`, `node/txreconciliation*`, `node/warnings*`, `rpc/net*`, `rpc/rawtransaction*`, `wallet/wallet*`).
 - Nouvelle extension de parité source Bitcoin Core avec `net_permissions*`, `node/addrdb*`, `node/blockstorage*` et `rpc/util*` pour couvrir davantage de rôles P2P, stockage bloc et utilitaires RPC.
 - Poursuite de la parité Bitcoin Core avec `common/messages*` (messages internes) et `node/interface_ui*` (pont notifications UI) adaptés au runtime ELIT21.
+- Ajout des modules `logging*` et `util/time*` pour rapprocher encore la couche runtime des primitives présentes dans Bitcoin Core (catégories de logs + utilitaires temporels UTC).
 
 ## Compilation rapide
 
@@ -45,3 +46,4 @@ ctest --test-dir build --output-on-failure
 - `src/validation/validation.cpp`: validation contextuelle (merkle + PoW simplifié).
 - `src/chainparams.cpp`: paramètres réseau de plus haut niveau.
 - `test/unit/*.cpp`: tests bloc/mempool + nouveaux tests chainparams, merkle/pow, chain manager, compatibilité de layout et modules de parité Bitcoin-like.
+- `test/unit/bitcoin_runtime_modules_tests.cpp`: couverture des nouveaux modules runtime (`logging`, `util/time`).

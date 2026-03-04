@@ -36,4 +36,6 @@ Recréer une base de fichiers proche de Bitcoin Core tout en gardant une implém
 - `src/rpc/request.{h,cpp}` : modèle de requête RPC + validation de méthode.
 - `src/common/messages.{h,cpp}` : catalogue minimal de messages internes pour aligner la couche `common/` avec l’esprit Bitcoin Core.
 - `src/node/interface_ui.{h,cpp}` : base d’interface UI (`info/warning/error`) inspirée du rôle de `node/interface_ui.*`.
+- `src/logging.{h,cpp}` : journalisation catégorisée côté runtime (net/rpc/validation/mempool/node).
+- `src/util/time.{h,cpp}` : utilitaires de temps UTC (`GetTimeSeconds`, `FormatISO8601`) similaires à la couche utilitaire de Bitcoin Core.
 

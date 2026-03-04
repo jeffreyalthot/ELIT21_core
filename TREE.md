@@ -64,6 +64,8 @@ Voir `config/seeds.json`.
 - `src/rpc/request.{h,cpp}` : structure et validation minimale des requêtes RPC.
 - `src/common/messages.{h,cpp}` : catalogue de messages système côté runtime ELIT21.
 - `src/node/interface_ui.{h,cpp}` : file de notifications UI interne du nœud.
+- `src/logging.{h,cpp}` : journalisation catégorisée du runtime ELIT21.
+- `src/util/time.{h,cpp}` : fonctions temps UTC pour horodatage et formatting API.
 
 ## Tests supplémentaires
 
@@ -79,3 +81,4 @@ Voir `config/seeds.json`.
 - `test/unit/bitcoin_parity_modules_tests.cpp`
 
 - `test/unit/bitcoin_source_parity_layout_tests.cpp`
+- `test/unit/bitcoin_runtime_modules_tests.cpp`
