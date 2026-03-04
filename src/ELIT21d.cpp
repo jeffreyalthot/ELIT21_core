@@ -23,11 +23,11 @@ int main(int argc, const char* argv[])
     }
 
     if (!node.Start()) {
-        std::cerr << "Impossible de démarrer le noeud ELIT21" << std::endl;
+        std::cerr << "Impossible de demarrer le noeud ELIT21" << std::endl;
         return 1;
     }
 
-    std::cout << "ELIT21 Core démarré: " << elit21::rpc::GetBlockchainInfo(node) << std::endl;
+    std::cout << "ELIT21 Core demarre: " << elit21::rpc::GetBlockchainInfo(node) << std::endl;
     std::cout << "Mempool: " << elit21::rpc::GetMempoolInfo(node) << std::endl;
     std::cout << "datadir=" << args.GetArg("datadir", "./datadir") << std::endl;
     std::cout << "config=" << config_path << std::endl;
