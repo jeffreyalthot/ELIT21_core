@@ -18,6 +18,7 @@ ELIT21 Core est une base de travail pour construire une implémentation blockcha
 - Nouvelle extension de parité source Bitcoin Core avec `net_permissions*`, `node/addrdb*`, `node/blockstorage*` et `rpc/util*` pour couvrir davantage de rôles P2P, stockage bloc et utilitaires RPC.
 - Poursuite de la parité Bitcoin Core avec `common/messages*` (messages internes) et `node/interface_ui*` (pont notifications UI) adaptés au runtime ELIT21.
 - Ajout des modules `logging*` et `util/time*` pour rapprocher encore la couche runtime des primitives présentes dans Bitcoin Core (catégories de logs + utilitaires temporels UTC).
+- Extension de parité de fichiers Bitcoin Core avec `common/init*`, `node/database_args*`, `node/types*` et `rpc/server_util*` pour préparer l'initialisation runtime, les chemins DB nœud, les constantes/propriétés de protocole et les helpers RPC serveur.
 
 ## Compilation rapide
 
