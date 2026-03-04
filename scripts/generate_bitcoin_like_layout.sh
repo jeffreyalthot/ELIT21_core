@@ -4,6 +4,7 @@ set -euo pipefail
 # Génère des fichiers de bootstrap "bitcoin-like" s'ils n'existent pas déjà.
 files=(
   src/clientversion.h src/clientversion.cpp
+  src/logging.h src/logging.cpp
   src/amount.h src/amount.cpp
   src/coins.h src/coins.cpp
   src/checkpoint.h src/checkpoint.cpp
@@ -13,6 +14,7 @@ files=(
   src/common/messages.h src/common/messages.cpp
   src/kernel/context.h src/kernel/context.cpp
   src/util/system.h src/util/system.cpp
+  src/util/time.h src/util/time.cpp
   src/util/strencodings.h src/util/strencodings.cpp
   src/interfaces/node.h src/interfaces/node.cpp
   src/index/base.h src/index/base.cpp
