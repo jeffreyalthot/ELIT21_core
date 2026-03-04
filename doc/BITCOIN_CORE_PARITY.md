@@ -25,3 +25,8 @@ Ce document décrit les nouveaux fichiers ajoutés pour rapprocher ELIT21 Core d
 ## Objectif
 
 Recréer une base de fichiers proche de Bitcoin Core tout en gardant une implémentation ELIT21-specific et progressive.
+
+- `src/net_permissions.{h,cpp}` : permissions réseau (`noban`, `relay`, `forcerelay`) inspirées de `net_permissions.*`.
+- `src/node/addrdb.{h,cpp}` : abstraction de base de chemin pour la base de pairs (`peers.dat`) dans l'esprit `node/addrdb.*`.
+- `src/node/blockstorage.{h,cpp}` : métadonnées de stockage bloc (fichiers/tailles) pour aligner la structure avec les responsabilités de block storage.
+- `src/rpc/util.{h,cpp}` : utilitaires RPC transverses (normalisation de méthode).
