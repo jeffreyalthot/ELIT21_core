@@ -28,10 +28,12 @@ add_library(elit21_core
     src/net.cpp
     src/net_permissions.cpp
     src/net_processing.cpp
+    src/node/blockmanager_args.cpp
     src/node/addrdb.cpp
     src/node/blockmanager.cpp
     src/node/blockstorage.cpp
     src/node/chainman.cpp
+    src/node/chainstate.cpp
     src/node/context.cpp
     src/node/peerman.cpp
     src/node/utxo_snapshot.cpp
@@ -54,6 +56,7 @@ add_library(elit21_core
     src/rpc/request.cpp
     src/versionbits.cpp
     src/validation/block_validator.cpp
+    src/validation.cpp
     src/validation/validation.cpp
     src/validation/tx_validator.cpp
     src/validationinterface.cpp

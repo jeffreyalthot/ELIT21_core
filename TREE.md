@@ -66,6 +66,8 @@ Voir `config/seeds.json`.
 - `src/node/interface_ui.{h,cpp}` : file de notifications UI interne du nœud.
 - `src/logging.{h,cpp}` : journalisation catégorisée du runtime ELIT21.
 - `src/util/time.{h,cpp}` : fonctions temps UTC pour horodatage et formatting API.
+- `src/validation.{h,cpp}` : façade de validation globale alignée sur le naming de Bitcoin Core avec adaptation ELIT21.
+- `src/node/chainstate.{h,cpp}` et `src/node/blockmanager_args.{h,cpp}` : ajout de briques node pour stats d'état de chaîne et paramètres block manager.
 
 ## Tests supplémentaires
 
