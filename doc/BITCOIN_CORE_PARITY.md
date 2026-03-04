@@ -30,3 +30,7 @@ Recréer une base de fichiers proche de Bitcoin Core tout en gardant une implém
 - `src/node/addrdb.{h,cpp}` : abstraction de base de chemin pour la base de pairs (`peers.dat`) dans l'esprit `node/addrdb.*`.
 - `src/node/blockstorage.{h,cpp}` : métadonnées de stockage bloc (fichiers/tailles) pour aligner la structure avec les responsabilités de block storage.
 - `src/rpc/util.{h,cpp}` : utilitaires RPC transverses (normalisation de méthode).
+- `src/common/settings.{h,cpp}` : gestion des paramètres runtime en mémoire.
+- `src/kernel/context.{h,cpp}` : objet de contexte kernel pour brancher le chainstate actif.
+- `src/node/txorphanage.{h,cpp}` : stockage des transactions orphelines dans la pile P2P.
+- `src/rpc/request.{h,cpp}` : modèle de requête RPC + validation de méthode.
